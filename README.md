@@ -1,34 +1,125 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# covidrescue.co.in
 
-## Getting Started
+#### ⚡️ Get `real-time`, `verified` leads on Oxygen, Remdesivir, ICU, Beds, Food and more based on your location. Get notifications on Vaccine at your mail whenever it is available.
 
-First, run the development server:
+## 🏠 **Home Page**
+
+![Vaccine Availability](https://raw.githubusercontent.com/PlaceholderTech/covidrescue.co.in/master/readmeGifs/twitter.gif)
+
+## 💉 **Vaccine Availability Notifier Page**
+
+![Vaccine Availability](https://raw.githubusercontent.com/PlaceholderTech/covidrescue.co.in/master/readmeGifs/availability.gif)
+
+## 🐥 Features
+
+- ⚡️ Get real-time verified leads on resources.
+- 🔥 Fast, real-time, built with `Next.js`, `Twitter-api`, `CoWIN API` and `AWS`
+- 🚀 Get Covid-19 State based on States, Areas, Cities and Overall India.
+- 🇮🇳 Map wise distribution of Active cases, Total Recovered, Total till now etc.
+- 🤙🏻 Real-time slots list available on the website itself.
+- 📍 Location-based filtering for tweets. (All the Indian cities are included)
+
+## 🔩 Installation
+
+Installation is simple. To run the project locally, follow the below steps:
+
+**Clone the repository**
+
+- `git clone https://github.com/PlaceholderTech/covidrescue.co.in.git`
+
+**Install the packages**
+
+- `npm install` or `yarn`
+
+Create a `.env.local` file to setup your environment variables. Example of .env file is provided in the repository as `.env.example`
+
+```bash
+TWITTER_API_KEY = ''
+TWITTER_API_SECRET = ''
+TWITTER_BEARER_TOKEN = ''
+TWITTER_ACCESS_TOKEN = ''
+TWITTER_ACCESS_TOKEN_SECRET = ''
+GOVT_DATA_API = ''
+EMAIL=''
+APPLICATION_PASSWORD=''
+
+MYSQL_HOST=''
+MYSQL_DATABASE=''
+MYSQL_USERNAME=''
+MYSQL_PASSWORD=''
+MYSQL_PORT=''
+```
+
+#### 🕊 Setting up Twitter API for fetching tweets
+
+For the Twitter posts to work, you need to create a Twitter Standard V2 Account. You can do it [here](https://developer.twitter.com/en/docs/getting-started).
+
+Approving of the Developer portal may take 1 day or more.
+Once you have the Twitter API credentials, populate the `.env.example` file and you're good to go.
+
+#### 💻 Setting up MySQL for storing users
+
+Note: Users are deleted when the notification is sent to the user.
+
+Setup a MySQL server on your system. Create a user and get the following credentials:
+
+```bash
+MYSQL_HOST
+MYSQL_DATABASE
+MYSQL_USERNAME
+MYSQL_PASSWORD
+MYSQL_PORT
+```
+
+#### ✉️ Sending Emails
+
+- Make your Gmail application `less secure`. Visit [This Link](https://myaccount.google.com/lesssecureapps) for more information.
+- Once you're done, Feed your Email and Password in `.env.local` file.
+
+```bash
+EMAIL=''
+APPLICATION_PASSWORD=''
+```
+
+For sending the automated emails, We've written a **Cron Job** that pings the `CoWIN API` every 1 minute. You can find the script under `/scripts` folder.
+
+You can run that script on your local node-express server for running the corn job.
+
+## 🦾 Usage
+
+To run the application locally:
 
 ```bash
 npm run dev
-# or
+```
+
+or
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Built with
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org/)
+- [AWS EC2](https://aws.amazon.com)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Tailwind-kit](https://tailwind-kit.com)
+- [MySQL](https://www.mysql.com/)
+- [Firebase](https://console.firebase.com)
+- [Heroicons](https://heroicons.com)
+- [Twitter API](https://developer.twitter.com)
+- [CoWIN API](https://apisetu.gov.in/public/marketplace/api/cowin)
+- [Node Cron](https://www.npmjs.com/package/node-cron)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Learn More
+Please make sure to update tests as appropriate.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[MIT](https://choosealicense.com/licenses/mit/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Developed by [Manu Arora](https://manuarora.in), [Kishore Raghavendra Gunnam](https://github.com/kishore-gunnam) and [Abhinav Sharma](https://abhinav.sh)
